@@ -1,0 +1,256 @@
+{% include 'header.twig' %}
+<style>
+    img {
+        width:100%;
+    }
+</style>
+<div class="wrapper-content">
+    <div class="wrapper-content__header">
+    </div>
+    <div class="wrapper-content__body">
+
+        <div id="block_93">
+            <div class="add-funds__form">
+                <div class="bg"></div>
+                <div class="divider-top"></div>
+                <div class="divider-bottom"></div>
+                <div class="container">
+                    <div class="row">
+                        {% if contentText %}
+                        <div class="col-lg-12 mt-2">
+                            <div class="card mb-2">
+                                {{ contentText }}
+                            </div>
+                        </div>
+                        {% endif %}
+                       <div class="col-lg-7 ">
+    <div class="component_form_group component_card component_radio_button">
+        <div class="component_card">
+            <div class="card mt-2 mb-2">
+                <form method="post" id="addfundsForm" action="/addfunds">
+                    <div class="form-group">
+                        <label for="method" class="control-label">{{ lang['addfunds.method'] }}</label>
+                        <select class="form-control" id="payment_method" name="payment_type" onchange="showPaymentDetails()">
+                            <option value="">-- Chọn phương thức --</option>
+                            <option value="MBBank">MB Bank (Auto)</option>
+                            <option value="Vietinbank">Vietinbank (Auto)</option>
+                            {% for method in site["paymentMethods"] %}
+                            <option value="{{ method['id'] }}">{{ method['name'] }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div id="paymentDetails" style="display: none;">
+                        <h4><span style="font-size: 15px"><span style="color: #ff0015">Lưu ý: Không được dùng Bank ảo nạp tiền. Cố tình nạp sẽ không được cộng tiền</span></span></h4>
+                        <p><strong>Chủ tài khoản:</strong> <span id="accountHolder"></span></p>
+                        <p><strong>Số tài khoản:</strong> <span id="accountNumber"></span></p>
+                        <p><strong>Tối thiểu:</strong> <span id="minAmount"></span></p>
+                        <p><strong>Nội dung:</strong> <span id="description"></span></p>
+                         <button class="btn btn-primary mt-3 mb-3" type="button" id="auto" onclick="activateCronJob()" style="display: none;">Kích hoạt cộng tiền nhanh</button>
+                        <p><strong>Mã QR:</strong> <img id="qrCode" src="" alt="QR Code" style="max-width: 300px;" /></p>
+                        
+                    </div>
+                    <div id="addfunds_fields"></div>
+                </form>
+                <div id="formSubmitResponseMessage"></div>
+                <div id="formSubmitResponseContent"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function showPaymentDetails() {
+        const paymentMethod = document.getElementById('payment_method').value;
+        const paymentDetails = document.getElementById('paymentDetails');
+        const addFundsFields = document.getElementById('addfunds_fields');
+        const autoButton = document.getElementById('auto');
+
+        let accountHolder, accountNumber, minAmount, description, qrCode;
+
+        // Ẩn hoặc hiện phần addfunds_fields
+        if (paymentMethod === "MBBank" || paymentMethod === "Vietinbank") {
+            addFundsFields.style.display = 'none';
+            autoButton.style.display = 'block'; // Hiển thị nút kích hoạt
+        } else {
+            addFundsFields.style.display = 'block'; // Hoặc bạn có thể thêm điều kiện hiển thị khác cho các phương thức khác
+            autoButton.style.display = 'none'; // Ẩn nút kích hoạt
+        }
+
+        if (paymentMethod === "MBBank") {
+            accountHolder = "HUYNH HUU VINH";
+            accountNumber = "7677789555555";
+            minAmount = "10.000 VNĐ (1$ = 26.000 VND)";
+            description = "naptien tentaikhoan";
+            qrCode = "/img/1727010752510.png"; // Thay thế bằng URL thực tế của mã QR
+        } else if (paymentMethod === "Vietinbank") {
+            accountHolder = "HUYNH HUU VINH";
+            accountNumber = "108870069532";
+            minAmount = "10.000 VNĐ (1$ = 26.000 VND)";
+            description = "naptien tentaikhoan";
+            qrCode = "/img/1727010914771.png"; // Thay thế bằng URL thực tế của mã QR
+        } else {
+            paymentDetails.style.display = 'none';
+            return;
+        }
+
+        // Cập nhật thông tin vào các phần tử
+        document.getElementById('accountHolder').innerText = accountHolder;
+        document.getElementById('accountNumber').innerText = accountNumber;
+        document.getElementById('minAmount').innerText = minAmount;
+        document.getElementById('description').innerText = description;
+        document.getElementById('qrCode').src = qrCode;
+
+        // Hiển thị thông tin
+        paymentDetails.style.display = 'block';
+    }
+
+    function activateCronJob() {
+        const paymentMethod = document.getElementById('payment_method').value;
+        let url = '';
+
+        if (paymentMethod === "MBBank") {
+            url = '../cronjobs/mbbank.php';
+        } else if (paymentMethod === "Vietinbank") {
+            url = '../cronjobs/viettinbank.php';
+        }
+
+        if (url) {
+            window.location.href = url; // Chuyển hướng đến URL tương ứng
+        } else {
+            alert('Vui lòng chọn phương thức thanh toán.');
+        }
+    }
+</script>
+
+
+
+                        <div class="col-lg-5 mt-2">
+                            <div class="component_content_card component_content_button component_content_headers">
+                                <div class="table-wr table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Ngày</th>
+                                                <th>Phương thức</th>
+                                                <th>Số tiền</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for payment in payments %}
+                                            <tr>
+                                                <td>{{ payment['id'] }}</td>
+                                                <td>{{ payment['date'] }}
+                                                </td>
+                                                <td>{{ payment['name'] }}</td>
+                                                <td>
+                                                    {{ payment['amount'] }}
+                                                </td>
+                                            </tr>
+
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="divider-top"></div>
+                <div class="divider-bottom"></div>
+                <div class="container ludd">
+                    {% if contentText2 %}
+                    <div class="card mt-4 mb-4 ">
+                        {{ contentText2 }}
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+					
+
+			{% include 'footer.twig' %}
+
+			<script>
+				var paymentMethods = {{ site["paymentMethodsJSON"] }};
+			</script>
+			<script>
+				const addfundsRoute = "/addfunds";
+function addfundsInit() {
+var addfundsForm = $("#addfundsForm");
+var fields = $("#addfunds_fields");
+var selectedMethod = $("#payment_method").val();
+var instructions = paymentMethods[selectedMethod][0].instructions;
+$.ajax({
+url: addfundsRoute,
+data: "action=getForm&selectedMethod=" + selectedMethod,
+type: "POST",
+success: function (json) {
+if (json.success == true) {
+if (instructions.length > 0) {
+var methodInstruction = '<div class="form-group"><label class="control-label">Instructions</label><div class="panel-body border-solid border-rounded">' + instructions + '</div></div>';
+} else {
+var methodInstruction = "";
+} fields.html(methodInstruction + json.content);
+extraFeeInit(selectedMethod);
+}
+}
+});
+}
+
+function extraFeeInit(method) {
+var fee = parseFloat(paymentMethods[method][0].fee).toFixed(2);
+var fields = $("#fee_fields");
+if (fee > 0) {
+fields.html('<div class="form-group"><label class="control-label">Phí</label><input type="text" class="form-control" id="methodExtraFee" disabled value="0.00"/></div><div class="form-group"><label class="control-label">Tổng số tiền</label><input type="text" id="totalAmount" class="form-control" disabled value="0.00" /></div>');
+}
+}
+function preparePrice(t) {
+n = 2;
+var r = (t = $.trim(t.toString().replace(",", "."))).split(".");
+return void 0 !== r[1] && (r[1] = r[1].replace(/0+$/g, ""), r[1].length > n && (n = 2 < r[1].length ? 2 : r[1].length)),
+1e3 <= (t =( t = parseFloat(t)).toFixed(n)) && (t = t.toString().replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, "$1" + "")),
+t = t.toString().replace(/\.(\d+)$/g, "." + "$1");
+return t.toFixed(n)
+}
+$(document).ready(function () {
+$(document).on("keyup", "#paymentAmount", function () {
+var selectedMethod = $("#payment_method").val();
+var amount = parseFloat($(this).val());
+var feePercentage = parseFloat(paymentMethods[selectedMethod][0].fee);
+var feeInput = $("#methodExtraFee");
+var totalAmountInput = $("#totalAmount");
+var fee = amount * (feePercentage / 100);
+feeInput.val(preparePrice(fee));
+totalAmountInput.val(preparePrice(amount + fee));
+});
+addfundsInit();
+});
+$("#payment_method").change(function () {
+addfundsInit();
+});
+
+$("#addfundsForm").submit(function (e) {
+e.preventDefault();
+var data = $(this).serialize();
+
+$.ajax({
+url: addfundsRoute,
+data: data,
+type: "POST",
+success: function (json) {
+if (json.success == true) {
+var msgDiv = $("#formSubmitResponseMessage");
+msgDiv.html('<div class="alert alert-success alert-dismissible fade show mt-2" role="alert">' + json.message + '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button></div>');
+var contentDiv = $("#formSubmitResponseContent");
+contentDiv.html(json.content);
+} else {
+var msgDiv = $("#formSubmitResponseMessage");
+msgDiv.html('<div class="alert alert-danger alert-dismissible fade show mt-2" role="alert">' + json.message + '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button></div>');
+}
+}
+
+});
+});
+			</script>

@@ -1,0 +1,285 @@
+{% include 'header.twig' %}
+
+ 
+
+ <div class="wrapper-content">
+    <div class="wrapper-content__header">
+          </div>
+
+      <!-- Main variables *content* -->
+      <div id="block_15">
+	<div class="account ">
+		<div class="bg"></div>
+		<div class="divider-top"></div>
+		<div class="divider-bottom"></div>
+		<div class="container">
+			<div class="row account__alignment">
+				<div class="col-lg-8">
+					
+						    
+						    
+						   
+                           <div class="alert alert-dismissible alert-success mb-3 ">
+                            <button  type="button" class="close" data-dismiss="alert">×</button>
+                             <p><span style="color:#ffffff">Khóa API đã được tạo:<br>{{ user['apikey'] }}</span></p>
+                        </div>
+						    	 
+						    	 	
+						    	<div class="alert alert-dismissible alert-success mb-3">
+                            <button type="button" class="close" data-dismiss="alert">×</button>
+                            <p><span style="color:#ffffff">Đã lưu thay đổi thành công</span></p>
+                        </div>
+                         
+                         
+                         
+						    
+							<div class="component_card">
+              	
+								<div class="card account-card">
+
+               
+								
+									<div class="component_form_group">
+										<div class="">
+											<div class="form-group">
+												<label>{{ lang['account.username'] }}</label>
+												<input type="text" class="form-control" id="username" value="{{ user['username'] }}" readonly>
+											</div>
+
+
+											<div class="form-group">
+												<label>{{ lang['account.email'] }}</label>
+												<input type="text" class="form-control" id="email" value="{{ user['email'] }}" readonly>
+											</div>
+
+
+
+
+<button class="btn btn-block btn-primary" id="changeEmailLink">
+                                            Thay đổi Mail
+                                        </button>
+</div>	</div>
+										 </div>	
+
+<div class="mt-3">
+ {% if site['languages']|length > 1 %}
+ <div class="component_card">
+                        <div class="card account-card">
+<div class="well">
+          <form method="post" action="account/change_lang">
+
+            <div class="form-group">
+              <label for="charge" class="control-label">{{ lang['account.changelang.title'] }}</label>
+              	<div class="d-flex form-group__line">
+              	    <div class="w-100">
+              <select class="form-control" name="lang">
+                  {% for language in site['languages'] %}
+                  <option {% if language["code"] == user["lang"] %} selected {% endif %} value="{{ language["code"] }}">{{ language["name"] }}</option>
+                  {% endfor %}
+              </select>
+            </div>
+
+            <div class="account-button-right">
+																<div class="component_button_save">
+																	<div class="">
+
+																		<button class="btn btn-block btn-primary" type="submit">
+																			Lưu
+																		</button>
+          </form>
+        </div></div></div>  </div></div></div></div></dv></div>
+       {% endif %}
+
+
+
+
+
+
+
+
+
+
+										 
+										<div class="mt-3">
+										  
+										  
+										 <div class="component_card">
+                        <div class="card account-card">
+                            
+                            {% if error %}
+										<div class="alert alert-dismissible alert-danger">
+											<button type="button" class="close" data-dismiss="alert">×</button>
+											{{ errorText }}
+										</div>
+									{% endif %}
+									{% if success %}
+										<div class="alert alert-dismissible alert-success">
+											<button type="button" class="close" data-dismiss="alert">×</button>
+											{{ successText }}
+										</div>
+									{% endif %}
+                            
+                            
+                            <form class="component_form_group" method="post" action="">
+                                <div class="">
+                                                                        <div class="form-group">
+										
+														<label>{{ lang['account.password.current'] }}</label>
+														<input type="password" class="form-control"  name="current_password">
+													</div>
+													<div class="form-group">
+														<label>{{ lang['account.password.new'] }}</label>
+														<input type="password" class="form-control"  name="password">
+													</div>
+													<div class="form-group">
+														<label>{{ lang['account.password.confirm'] }}</label>
+														<input type="password" class="form-control"  name="confirm_password">
+													</div>
+												</div>
+												<div class="component_button_save">
+													<div class="btn-password ">
+
+														<button class="btn btn-block btn-primary" type="submit">
+															Thay đổi mật khẩu
+														</button>
+													</div>
+												</div>
+											</form>
+
+</div>	</div>
+										 </div>	
+										 
+										 
+										 
+				<div class="mt-3">					 
+				<div class="component_card">
+                        <div class="card account-card">
+                            <div id="2fa-approve-error-block" style="display: none;" class="alert alert-dismissible alert-danger ">
+                                <button type="button" class="close">×</button>
+                                <span id="2fa-error-text"></span>
+                            </div>
+
+                            <div class="component_form_group ">
+                                <div class="form-group">
+                                    <label>
+                                        Xác thực hai yếu tố
+                                                                            </label>
+
+                                    <!-- 2FA Form generate code -->
+                                    <form id="2fa-generate-form" method="post" action="/account/2fa/generate" style=" display: block; ">
+                                        <div class="mb-4">Tùy chọn dựa trên email để thêm một lớp bảo vệ bổ sung cho tài khoản của bạn. Khi đăng nhập, bạn sẽ cần nhập mã sẽ được gửi đến địa chỉ email của bạn.</div>
+                                        <input type="hidden" name="enabled" value="1">
+                                        <input type="hidden" name="_csrf" value="IZ34yJWu4ll9y8YVPqlYWSpfhIlEKTJvkE0jzxkHcdtzrM2gzcCPDRWvr0JQ4BM7ExT1sBVfQQLbG2GnK3Q1qQ==">
+                                        <div class="component_button_save">
+                                            <div class="">
+                                                <button id="2fa-generate" type="submit" class="btn btn-block btn-primary""">
+                                                                                                            Mở
+                                                                                                    </button>
+                                            </div>
+                                        </div>
+                                    </form>
+
+                                    <!-- 2FA Form approve code -->
+                                    <form id="2fa-approve-form" method="post" action="/account/2fa/approve" style=" display: none; ">
+                                        <div class="mb-4">Vui lòng kiểm tra email của bạn và nhập mã bên dưới.</div>
+                                        <div class="form-group">
+                                            <label for="code" class="control-label">Mã số</label>
+                                            <input type="text" id="code" name="code" class="form-control">
+                                        </div>
+                                        <input type="hidden" name="enabled" value="1">
+                                        <input type="hidden" name="_csrf" value="IZ34yJWu4ll9y8YVPqlYWSpfhIlEKTJvkE0jzxkHcdtzrM2gzcCPDRWvr0JQ4BM7ExT1sBVfQQLbG2GnK3Q1qQ==">
+                                        <div class="component_button_save">
+                                            <div class="">
+                                                <button id="2fa-approve" type="submit" class="btn btn-block btn-big-primary">
+                                                                                                            Mở
+                                                                                                    </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>						 
+										 
+										 
+										 
+										 
+										 
+										 
+										 
+										<div class="mt-3">
+										 <div class="component_card">
+                        <div class="card account-card">
+											<form method="post" action="account/timezone">
+												<div class="">
+													<div class="form-group">
+														<label>{{ lang['account.timezone.title'] }}</label>
+														
+														    <div class="d-flex form-group__line">
+															<div class="w-100">
+																<select + name="timezone" id="timezone" class="form-control">
+																	{% for timezone in timezones %}
+																		<option  {% if timezone["timezone"] == user['timezone'] %} selected {% endif %} value="{{ timezone["timezone"] }}">{{ timezone["label"] }}</option>
+																	{% endfor %}
+																</select>
+															</div>
+															<div class="account-button-right">
+																<div class="component_button_save">
+																	<div class="">
+
+																		<button class="btn btn-block btn-primary" type="submit">
+																			Lưu
+																		</button>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</form>
+											
+											
+											</div>	</div>
+											
+										
+											
+										<div class="mt-3">
+										 <div class="component_card">
+                        <div class="card account-card">
+                            
+                            	
+                            
+ <form  action="/account/newapikey" method="post">
+								 <div class="form-group mb-4">
+								     
+<label>Api Key</label>
+	<div class="d-flex form-group__line">
+															<div class="w-100">
+
+<input  class="form-control" type="text" id="api_key"  value="**********************" readonly>
+								 </div>
+								 	<div class="account-button-right">
+																<div class="component_button_save">
+																	<div class="">
+									<button  class="btn btn-block btn-primary">Tạo mới</button> 
+										
+								 </form>
+													 </div>
+
+    </div>
+  </div>
+</div>
+ </div>
+  </div>
+</div> </div>
+  </div>
+</div>          </div>
+  </div>
+</div>
+ </div>
+  </div>
+</div> </div>
+  </div>
+</div>
+
+{% include 'footer.twig' %}

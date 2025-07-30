@@ -1,0 +1,778 @@
+{% include 'header.twig' %}
+<svg style="transform:rotateX(180deg);margin-bottom:0px;margin-top:-10px;" width="100%" height="40px" viewBox="50 0 1180 140" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+              <g fill="#ffffff">
+                <path d="M0 47.44L170 0l626.48 94.89L1110 87.11l170-39.67V140H0V47.44z" fill-opacity=".5"></path>
+                <path d="M0 90.72l140-28.28 315.52 24.14L796.48 65.8 1140 104.89l140-14.17V140H0V90.72z"></path>
+              </g>
+            </svg>
+<style>@media (max-width: 480px){.body h1 {font-size: 10vmin;line-height: 1.1666666666;font-family: "Noto Sans", sans-serif;font-weight: 700;font-style: normal;}}@media (min-width: 778px){.body h1{font-size: 48px;line-height: 56px;letter-spacing: 0px;font-weight: 700;font-style: normal;color: #052a36;font-family: Barlow;}}#block_337{padding-bottom: 180px;padding-top: 0px;}
+</style>
+   <div class="wrapper-content">
+    <div class="wrapper-content__header">
+          </div>
+    <div class="wrapper-content__body">
+      <!-- Main variables *content* -->
+      <div id="block_337">
+	<div class="block-signin ">
+		<div class="bg"></div>
+		<div class="divider-top"></div>
+		<div class="divider-bottom"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="block-signin__content">
+						{% if contentText %}
+<div class="block-signin__title style-text-signin">
+{{ contentText }}
+</div>
+{% else %}
+<div class="block-signin__title style-text-signin"><h1 class="text-center"><span style="color: rgba(238, 228, 2, 1)">SMM</span> Panel, Bảng <span style="color: rgba(238, 228, 2, 1)">Điều Khiển</span> Nhà cung cấp <span style="color: rgba(238, 228, 2, 1)">Chính</span> <span style="color: rgba(240, 7, 7, 1)"></span> <span style="color: rgba(246, 6, 6, 1)"></span></h1></div></br>
+<br>
+						<div class="block-signin__description style-text-signin"><p><center><strong style="font-weight: bold">CHÚNG TÔI </strong><span style="color: rgba(234, 3, 3, 1)"><strong style="font-weight: bold">CÓ MỌI THỨ </strong></span><strong style="font-weight: bold">BẠN CẦN ĐỂ CHẠY </strong><span style="color: rgba(14, 234, 30, 1)"><strong style="font-weight: bold">TRUYỀN THÔNG </strong></span><strong style="font-weight: bold">MXH</strong></center></p></div>
+{% endif %}
+					</div>
+				</div>
+			</div>
+			<div class="row block-signin__aligment">
+				<div class="col-lg-8">
+					<div class="block-signin__card component_card">
+						<div class="card">
+							
+														{% if errorText %}
+        <div class="alert alert-dismissible alert-danger">
+          <button type="button" class="close" data-dismiss="alert">×</button>
+          {{ errorText }}
+        </div>
+      {% endif %}
+      {% if successText %}
+        <div class="alert alert-dismissible alert-success">
+          <button type="button" class="close" data-dismiss="alert">×</button>
+          {{ successText }}
+        </div>
+      {% endif %}
+                            <form method="post" action="/" class="component_form_group component_checkbox_remember_me">
+                             <div class="form-row">
+									<div class="custom-col">
+										<div class="form-group ">
+											<label>Tên đăng nhập</label>
+										 <input type="text" name="username" class="form-control" value="{{ data["username"] }}" >
+										</div>
+									</div>
+									<div class="custom-col">
+										<div class="form-group ">
+											<label>Mật khẩu</label>
+										<input type="password" name="password" class="form-control">
+										</div>
+									</div>
+								</div>
+								<div class="form-row">
+									<div class="custom-col">
+										<div class="form-group ">
+											<div class="form-group__checkbox">
+												<label class="form-group__checkbox-label">
+													<input type="checkbox" name="LoginForm[remember]" id="block_337_remember_me">
+													<span class="checkmark"></span>
+												</label>
+												<label class="form-group__label-title" for="block_337_remember_me">Ghi nhớ đăng nhập</label>
+											</div>
+										</div>
+									</div>
+									<div class="custom-col">
+										<div class="form-group ">
+																							<div class="sign-in__forgot">
+													<a href="/resetpassword">Quên mật khẩu?</a>
+												</div>
+																					</div>
+									</div>
+								</div>
+								<div class="form-row">
+									<div class="custom-col">
+										<div class="form-group d-flex component_button_submit ">
+											<button class="btn btn-primary" type="submit">Đăng nhập</button>
+										</div>
+										{% if captcha %}
+            <div class="form-group">
+              <div class="g-recaptcha" data-sitekey="{{ captchaKey }}"></div>
+            </div>
+          {% endif %}
+									</div>
+								</div>
+								<div class="form-row">
+									<div class="custom-col">
+										<div class="form-group d-flex justify-content-center ">
+											<div class="block-signin__remember">
+												<p>Bạn chưa có tài khoản?</p>
+												<a class="block-signin__link" href="/signup">Đăng ký</a>
+											</div>
+
+
+
+</div>
+</div>
+								
+															</form>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>
+{% if contentText2 %}
+<div class="ment">
+{{ contentText2 }}
+</div>
+{% endif %}
+<div id="block_351">
+	<div class="header-with-text ">
+		<div class="bg"></div>
+		<div class="divider-top"></div>
+		<div class="divider-bottom"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<div class="text-block__title style-header-text">
+						<h2 class="text-center"><span style="text-align: CENTER">Tại sao chọn chúng tôi?</span></h2>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-12">
+					<div class="text-block__description style-header-text">
+						<p class="text-center">Tìm hiểu điều gì khiến bảng điều khiển của chúng tôi nổi bật trên thị trường.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="block_341">
+	<div class="block-features ">
+		<div class="bg"></div>
+		<div class="divider-top"></div>
+		<div class="divider-bottom"></div>
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-lg-8 block-features__cards">
+					<div class="row">
+													<div class="col-md-6 style-features-card">
+                                <div class="card features-card" style="
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ">
+                                    <div class="block-features__card">
+                                        <div class="block-features__card-icon" style="margin-bottom: 10px;
+                                                 height: 80px;                                                  width: 80px;                                                                                                                                                                                                                                                                                                                                                 ">
+                                            <span class="feature-block__icon fas fa-star-shooting" style="
+                                                font-size: 24px;
+                                                width: 24px;
+                                                height: 24px;
+                                                transform: rotate(0deg);
+                                                color: #14ddd7;
+                                                text-shadow: 0 8px 16px rgba(20, 221, 215, 0.32);
+                                                border-radius: 0px;
+                                                background: transparent;
+                                                padding: 0px;
+                                                "></span>
+                                        </div>
+                                        <div class="block-features__card-content">
+                                                                                            <div class="card-content__head style-text-features-title" style="margin-bottom: 10px; padding-left: 0px; padding-right: 0px;">
+                                                    <p><strong style="font-weight: bold">Chất lượng tuyệt vời</strong></p>
+                                                </div>
+                                                                                                                                        <div class="card-content__desc style-text-features-desc" style="padding-left: 0px; padding-right: 0px;">
+                                                    <p>Các dịch vụ SMM tốt nhất bạn có thể tìm thấy trên thị trường.</p>
+                                                </div>
+                                                                                    </div>
+                                    </div>
+                                </div>
+							</div>
+													<div class="col-md-6 style-features-card">
+                                <div class="card features-card" style="
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ">
+                                    <div class="block-features__card">
+                                        <div class="block-features__card-icon" style="margin-bottom: 10px;
+                                                 height: 80px;                                                  width: 80px;                                                                                                                                                                                                                                                                                                                                                 ">
+                                            <span class="feature-block__icon  fas fa-money-bill-wave" style="
+                                                font-size: 24px;
+                                                width: 24px;
+                                                height: 24px;
+                                                transform: rotate(0deg);
+                                                color: #1a87ff;
+                                                text-shadow: 0 8px 16px rgba(26, 135, 255, 0.32);
+                                                border-radius: 0px;
+                                                background: transparent;
+                                                padding: 0px;
+                                                "></span>
+                                        </div>
+                                        <div class="block-features__card-content">
+                                                                                            <div class="card-content__head style-text-features-title" style="margin-bottom: 10px; padding-left: 0px; padding-right: 0px;">
+                                                    <p><strong style="font-weight: bold">Tùy chọn thanh toán khác nhau</strong></p>
+                                                </div>
+                                                                                                                                        <div class="card-content__desc style-text-features-desc" style="padding-left: 0px; padding-right: 0px;">
+                                                    <p>Bạn có thể thêm tiền thông qua tùy chọn thanh toán mà bạn thích.</p>
+                                                </div>
+                                                                                    </div>
+                                    </div>
+                                </div>
+							</div>
+													<div class="col-md-6 style-features-card">
+                                <div class="card features-card" style="
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ">
+                                    <div class="block-features__card">
+                                        <div class="block-features__card-icon" style="margin-bottom: 10px;
+                                                 height: 80px;                                                  width: 80px;                                                                                                                                                                                                                                                                                                                                                 ">
+                                            <span class="feature-block__icon  fas fa-hands-usd" style="
+                                                font-size: 24px;
+                                                width: 24px;
+                                                height: 24px;
+                                                transform: rotate(0deg);
+                                                color: #ffc157;
+                                                text-shadow: 0 8px 16px rgba(255, 193, 87, 0.32);
+                                                border-radius: 0px;
+                                                background: transparent;
+                                                padding: 0px;
+                                                "></span>
+                                        </div>
+                                        <div class="block-features__card-content">
+                                                                                            <div class="card-content__head style-text-features-title" style="margin-bottom: 10px; padding-left: 0px; padding-right: 0px;">
+                                                    <p><strong style="font-weight: bold">Giá cả phải chăng hơn</strong></p>
+                                                </div>
+                                                                                                                                        <div class="card-content__desc style-text-features-desc" style="padding-left: 0px; padding-right: 0px;">
+                                                    <p>Tất cả các dịch vụ SMM trên bảng điều khiển của chúng tôi đều cực kỳ rẻ.</p>
+                                                </div>
+                                                                                    </div>
+                                    </div>
+                                </div>
+							</div>
+													<div class="col-md-6 style-features-card">
+                                <div class="card features-card" style="
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ">
+                                    <div class="block-features__card">
+                                        <div class="block-features__card-icon" style="margin-bottom: 10px;
+                                                 height: 80px;                                                  width: 80px;                                                                                                                                                                                                                                                                                                                                                 ">
+                                            <span class="feature-block__icon  fas fa-shipping-fast" style="
+                                                font-size: 24px;
+                                                width: 24px;
+                                                height: 24px;
+                                                transform: rotate(0deg);
+                                                color: #ff4587;
+                                                text-shadow: 0 8px 16px rgba(255, 69, 135, 0.32);
+                                                border-radius: 0px;
+                                                background: transparent;
+                                                padding: 0px;
+                                                "></span>
+                                        </div>
+                                        <div class="block-features__card-content">
+                                                                                            <div class="card-content__head style-text-features-title" style="margin-bottom: 10px; padding-left: 0px; padding-right: 0px;">
+                                                    <p><strong style="font-weight: bold">Giao hàng nhanh chóng</strong></p>
+                                                </div>
+                                                                                                                                        <div class="card-content__desc style-text-features-desc" style="padding-left: 0px; padding-right: 0px;">
+                                                    <p>Bạn sẽ ngạc nhiên về tốc độ giao hàng của chúng tôi.</p>
+                                                </div>
+                                                                                    </div>
+                                    </div>
+                                </div>
+							</div>
+											</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="block_353">
+	<div class="header-with-text ">
+		<div class="bg"></div>
+		<div class="divider-top"></div>
+		<div class="divider-bottom"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<div class="text-block__title style-header-text">
+						<h2 class="text-center"><span style="text-align: CENTER">Nó hoạt động như thế nào</span></h2>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-12">
+					<div class="text-block__description style-header-text">
+						<p class="text-center"><span style="text-align: CENTER">4 bước đơn giản để đưa doanh nghiệp của bạn lên một tầm cao mới.</span></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="block_350">
+	<div class="how-it-works ">
+		<div class="bg"></div>
+		<div class="divider-top"></div>
+		<div class="divider-bottom"></div>
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-lg-7">
+					<div class="row">
+						<div class="col-lg-12">
+															<div class="how-it-works__card">
+									<div class="card" style="
+																																																																																																																																																																																">
+										<div class="how-it-works__card-wrap">
+											<div class="card__icon" style="justify-content: flex-end">
+											  	<span class="card__icon-wrap" style="
+												  	 height: 80px;                                                 	 width: 80px; 																																																																														                          						">
+													<span class="card__icon-fa far fa-sign-in-alt" style="
+														font-size: 56px;
+														width: 56px;
+														height: 56px;
+														transform: rotate(0deg);
+														color: #14ddd7;
+														text-shadow: 0px 0px 0px rgba(0, 0, 0, 1);
+														border-radius: 0px;
+														background: transparent;
+														padding: 0px;
+													"></span>
+												</span>
+											</div>
+											<div class="card__number-wrap">
+												<div class="card__number">
+													<div class="number__count style-card-number" style="
+															 width: 80px; 															 height: 80px; 																																																																																																																																																																																																			 font-size: 24px; 															">
+														1
+													</div>
+												</div>
+											</div>
+											<div class="card__content">
+												<div class="content__title style-how-it-card-title" style="margin-bottom: 8px; padding-top: 0px; padding-left: 0px; padding-right: 0px;"><p><strong style="font-weight: bold">Đăng ký</strong></p></div>
+												<div class="content__desc style-how-it-card-desc" style="padding-left: 0px; padding-right: 0x;"><p>Bắt đầu với việc đăng ký và đăng nhập vào tài khoản của bạn.</p></div>
+											</div>
+										</div>
+									</div>
+									<div class="how-it-works__card-line style-card-number-line" style=""></div>
+								</div>
+															<div class="how-it-works__card">
+									<div class="card" style="
+																																																																																																																																																																																">
+										<div class="how-it-works__card-wrap">
+											<div class="card__icon" style="justify-content: flex-start">
+											  	<span class="card__icon-wrap" style="
+												  	 height: 80px;                                                 	 width: 80px; 																																																																														                          						">
+													<span class="card__icon-fa far fa-wallet" style="
+														font-size: 56px;
+														width: 56px;
+														height: 56px;
+														transform: rotate(0deg);
+														color: #1a87ff;
+														text-shadow: 0px 0px 0px rgba(0, 0, 0, 1);
+														border-radius: 0px;
+														background: transparent;
+														padding: 0px;
+													"></span>
+												</span>
+											</div>
+											<div class="card__number-wrap">
+												<div class="card__number">
+													<div class="number__count style-card-number" style="
+															 width: 80px; 															 height: 80px; 																																																																																																																																																																																																			 font-size: 24px; 															">
+														2
+													</div>
+												</div>
+											</div>
+											<div class="card__content">
+												<div class="content__title style-how-it-card-title" style="margin-bottom: 8px; padding-top: 0px; padding-left: 0px; padding-right: 0px;"><p><strong style="font-weight: bold">Nạp tiền</strong></p></div>
+												<div class="content__desc style-how-it-card-desc" style="padding-left: 0px; padding-right: 0x;"><p>Chọn phương thức thanh toán phù hợp để thêm tiền vào tài khoản của bạn.</p></div>
+											</div>
+										</div>
+									</div>
+									<div class="how-it-works__card-line style-card-number-line" style=""></div>
+								</div>
+															<div class="how-it-works__card">
+									<div class="card" style="
+																																																																																																																																																																																">
+										<div class="how-it-works__card-wrap">
+											<div class="card__icon" style="justify-content: flex-end">
+											  	<span class="card__icon-wrap" style="
+												  	 height: 80px;                                                 	 width: 80px; 																																							 border-top-left-radius: 0px; 													 border-bottom-left-radius: 0px; 													 border-top-right-radius: 0px; 													 border-bottom-right-radius: 0px;                           						">
+													<span class="card__icon-fa far fa-check-double" style="
+														font-size: 56px;
+														width: 56px;
+														height: 56px;
+														transform: rotate(0deg);
+														color: #ffc157;
+														text-shadow: 0px 0px 0px rgba(0, 0, 0, 1);
+														border-radius: 0px;
+														background: transparent;
+														padding: 0px;
+													"></span>
+												</span>
+											</div>
+											<div class="card__number-wrap">
+												<div class="card__number">
+													<div class="number__count style-card-number" style="
+															 width: 80px; 															 height: 80px; 																																																																																																																																																																																																			 font-size: 24px; 															">
+														3
+													</div>
+												</div>
+											</div>
+											<div class="card__content">
+												<div class="content__title style-how-it-card-title" style="margin-bottom: 8px; padding-top: 0px; padding-left: 0px; padding-right: 0px;"><p><strong style="font-weight: bold">Chọn dịch vụ SMM</strong></p></div>
+												<div class="content__desc style-how-it-card-desc" style="padding-left: 0px; padding-right: 0x;"><p>Đặt hàng và sẵn sàng chứng kiến doanh nghiệp của bạn được biết đến nhiều hơn.</p></div>
+											</div>
+										</div>
+									</div>
+									<div class="how-it-works__card-line style-card-number-line" style=""></div>
+								</div>
+															<div class="how-it-works__card">
+									<div class="card" style="
+																																																																																																																																																																																">
+										<div class="how-it-works__card-wrap">
+											<div class="card__icon" style="justify-content: flex-start">
+											  	<span class="card__icon-wrap" style="
+												  	 height: 80px;                                                 	 width: 80px; 																																																																														                          						">
+													<span class="card__icon-fa far fa-grin-hearts" style="
+														font-size: 56px;
+														width: 56px;
+														height: 56px;
+														transform: rotate(0deg);
+														color: #ff4587;
+														text-shadow: 0px 0px 0px rgba(0, 0, 0, 1);
+														border-radius: 0px;
+														background: transparent;
+														padding: 0px;
+													"></span>
+												</span>
+											</div>
+											<div class="card__number-wrap">
+												<div class="card__number">
+													<div class="number__count style-card-number" style="
+															 width: 80px; 															 height: 80px; 																																																																																																																																																																																																			 font-size: 24px; 															">
+														4
+													</div>
+												</div>
+											</div>
+											<div class="card__content">
+												<div class="content__title style-how-it-card-title" style="margin-bottom: 8px; padding-top: 0px; padding-left: 0px; padding-right: 0px;"><p><strong style="font-weight: bold">Tận hưởng kết quả tuyệt vời</strong></p></div>
+												<div class="content__desc style-how-it-card-desc" style="padding-left: 0px; padding-right: 0px;"><p>Sau khi đơn hàng của bạn hoàn tất, hãy tận hưởng sự phát triển của tài khoản truyền thông xã hội của bạn.</p></div>
+											</div>
+										</div>
+									</div>
+									<div class="how-it-works__card-line style-card-number-line" style=""></div>
+								</div>
+													</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div id="block_327">
+	<div class="reviews-block ">
+		<div class="bg"></div>
+		<div class="divider-top"></div>
+		<div class="divider-bottom"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-4">
+					<div class="reviews-block__title style-review-card-title"><h2>Câu chuyện thành công</h2></div>
+					<div class="reviews-block__desc style-review-card-desc"><p>Hãy xem một số câu chuyện thành công của khách hàng chúng tôi dưới đây.</p></div>
+				</div>
+				<div class="col-lg-8">
+					<div class="row">
+													<div class="col-lg-6 col-md-6 co-sm-12">
+                                <div class="block-reviews__card">
+                                    <div class="card card__reviews" style="
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ">
+                                        <div class="item__desc style-review-card-desc" style="padding-left: 0px; padding-right: 0px; margin-bottom: 16px;">
+                                            <p>Tôi không thể tìm ra cách tốt nhất để quảng bá doanh nghiệp của mình trực tuyến vừa hiệu quả vừa có giá cả phải chăng. Bảng điều khiển SMM này là giải pháp tốt nhất mà tôi tìm thấy cho đến nay! Chỉ cần kiểm tra giá của họ - bạn thực sự không thể sai với điều đó.</p>
+                                        </div>
+                                        <div class="item__author style-review-card-author" style="padding-left: 0px; padding-right: 0px;">
+                                            <p><strong style="font-weight: bold">Huỳnh Kim Ánh</strong></p>
+                                        </div>
+                                    </div>
+                                </div>
+							</div>
+													<div class="col-lg-6 col-md-6 co-sm-12">
+                                <div class="block-reviews__card">
+                                    <div class="card card__reviews" style="
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ">
+                                        <div class="item__desc style-review-card-desc" style="padding-left: 0px; padding-right: 0px; margin-bottom: 16px;">
+                                            <p>Nếu bạn đang tự hỏi làm cách nào để có thể giúp tài khoản mạng xã hội của mình nhanh chóng được chú ý hơn thì đây chính là cách đó! Cũng không cần phải đợi lâu vì dịch vụ SMM trên bảng điều khiển này được cung cấp siêu nhanh. Các dịch vụ cũng rất rẻ.</p>
+                                        </div>
+                                        <div class="item__author style-review-card-author" style="padding-left: 0px; padding-right: 0px;">
+                                            <p><strong style="font-weight: bold">Nguyễn Văn Hòa</strong></p>
+                                        </div>
+                                    </div>
+                                </div>
+							</div>
+													<div class="col-lg-6 col-md-6 co-sm-12">
+                                <div class="block-reviews__card">
+                                    <div class="card card__reviews" style="
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ">
+                                        <div class="item__desc style-review-card-desc" style="padding-left: 0px; padding-right: 0px; margin-bottom: 16px;">
+                                            <p>Khi tôi mới bắt đầu kinh doanh, tôi không có ngân sách lớn và không thể trả tiền cho các đại lý SMM để xử lý tài khoản của mình. Nhưng việc tìm ra bảng điều khiển SMM này đã giải quyết được vấn đề này một cách tốt đẹp — giờ đây tôi có thể đặt mua bất kỳ dịch vụ SMM nào tôi muốn với mức giá phải chăng như vậy!</p>
+                                        </div>
+                                        <div class="item__author style-review-card-author" style="padding-left: 0px; padding-right: 0px;">
+                                            <p><strong style="font-weight: bold">Đỗ Văn Xuân</strong></p>
+                                        </div>
+                                    </div>
+                                </div>
+							</div>
+													<div class="col-lg-6 col-md-6 co-sm-12">
+                                <div class="block-reviews__card">
+                                    <div class="card card__reviews" style="
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ">
+                                        <div class="item__desc style-review-card-desc" style="padding-left: 0px; padding-right: 0px; margin-bottom: 16px;">
+                                            <p>Tôi giúp các cá nhân và doanh nghiệp thu hút sự chú ý của các trang truyền thông xã hội của họ trực tuyến và bảng điều khiển SMM này chắc chắn giúp công việc của tôi dễ dàng hơn rất nhiều. Nó cũng giúp tôi kiếm được nhiều tiền hơn, rất khuyến khích.</p>
+                                        </div>
+                                        <div class="item__author style-review-card-author" style="padding-left: 0px; padding-right: 0px;">
+                                            <p><span><strong style="font-weight: bold">Huỳnh Văn Đại</strong></span></p>
+                                        </div>
+                                    </div>
+                                </div>
+							</div>
+											</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="block_331">
+	<div class="header-with-text ">
+		<div class="bg"></div>
+		<div class="divider-top"></div>
+		<div class="divider-bottom"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<div class="text-block__title style-header-text">
+						<h2 class="text-center">Top 5 câu hỏi được hỏi nhiều nhất</h2>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-12">
+					<div class="text-block__description style-header-text">
+						<p class="text-center">Chúng tôi đã tập hợp 5 câu hỏi được hỏi nhiều nhất từ những người tham gia hội thảo và trả lời chúng.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="block_328">
+	<div class="faq ">
+		<div class="bg"></div>
+		<div class="divider-top"></div>
+		<div class="divider-bottom"></div>
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-lg-10">
+					<div class="row">
+													<div class="col-lg-6 col-md-6 co-sm-12">
+								<div class="block-faq__card" style="
+																																																		                                    																																																		                                    																																																		                                    																																																		                                    																																																		                                    																																																		                                ">
+									<span class="style-collapsed-background" style="">
+										<div class="card card__faq collapsed" data-toggle="collapse" data-target="#faq-block-328-1" aria-expanded="false" aria-controls="#faq-block-328-1" style="
+																																																												                                            																																																												                                            																																																												                                            																																																												                                            																																																												                                            																																																												                                            																																																												                                            																																																												                                            																																																												                                            																																																												                                            																																																												                                            ">
+											<div class="block-faq__card-content">
+												<div class="card-content__head">
+													<div class="head__title style-faq-card-title">
+														<p><strong style="font-weight: bold">Điều gì khiến mọi người tìm kiếm bảng SMM?</strong></p>
+													</div>
+													<div class="head__icon style-collapsed-icon" style="">
+														<div class="faq-block__icon style-collapse-icon fas" style="
+																																																																											                                                            font-size: 24px; 																																																																											                                                            "></div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="card card__faq-desc" style="
+																																																																								                                                    padding-top: 8px;
+																																																																								                                                    																																																																								                                                    																																																																								                                                    																																																																								                                                    																																																																								                                                    																																																																								                                                    																																																																								                                                    																																																																								                                                    																																																																								                                                    																																																																								                                                    																																																																								                                                    ">
+											<div class="card-content__desc collapse" id="faq-block-328-1">
+												<div class="desc__body style-faq-card-desc" style="padding-left: 0px; padding-right: 0px;">
+													<p>Bảng SMM là các cửa hàng trực tuyến cung cấp các loại dịch vụ SMM khác nhau.</p>
+												</div>
+											</div>
+										</div>
+									</span>
+								</div>
+							</div>
+													<div class="col-lg-6 col-md-6 co-sm-12">
+								<div class="block-faq__card" style="
+																																																		                                    																																																		                                    																																																		                                    																																																		                                    																																																		                                    																																																		                                ">
+									<span class="style-collapsed-background" style="">
+										<div class="card card__faq collapsed" data-toggle="collapse" data-target="#faq-block-328-2" aria-expanded="false" aria-controls="#faq-block-328-2" style="
+																																																												                                            																																																												                                            																																																												                                            																																																												                                            																																																												                                            																																																												                                            																																																												                                            																																																												                                            																																																												                                            																																																												                                            																																																												                                            ">
+											<div class="block-faq__card-content">
+												<div class="card-content__head">
+													<div class="head__title style-faq-card-title">
+														<p><strong style="font-weight: bold">Bảng điều khiển của bạn cung cấp dịch vụ SMM nào?</strong></p>
+													</div>
+													<div class="head__icon style-collapsed-icon" style="">
+														<div class="faq-block__icon style-collapse-icon fas" style="
+																																																																											                                                            font-size: 24px; 																																																																											                                                            "></div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="card card__faq-desc" style="
+																																																																								                                                    padding-top: 8px;
+																																																																								                                                    																																																																								                                                    																																																																								                                                    																																																																								                                                    																																																																								                                                    																																																																								                                                    																																																																								                                                    																																																																								                                                    																																																																								                                                    																																																																								                                                    																																																																								                                                    ">
+											<div class="card-content__desc collapse" id="faq-block-328-2">
+												<div class="desc__body style-faq-card-desc" style="padding-left: 0px; padding-right: 0px;">
+													<p>Trên bảng điều khiển của chúng tôi, chúng tôi bán các loại dịch vụ SMM khác nhau: lượt thích, người theo dõi, lượt xem, v.v.</p>
+												</div>
+											</div>
+										</div>
+									</span>
+								</div>
+							</div>
+													<div class="col-lg-6 col-md-6 co-sm-12">
+								<div class="block-faq__card" style="
+																																																		                                    																																																		                                    																																																		                                    																																																		                                    																																																		                                    																																																		                                ">
+									<span class="style-collapsed-background" style="">
+										<div class="card card__faq collapsed" data-toggle="collapse" data-target="#faq-block-328-3" aria-expanded="false" aria-controls="#faq-block-328-3" style="
+																																																												                                            																																																												                                            																																																												                                            																																																												                                            																																																												                                            																																																												                                            																																																												                                            																																																												                                            																																																												                                            																																																												                                            																																																												                                            ">
+											<div class="block-faq__card-content">
+												<div class="card-content__head">
+													<div class="head__title style-faq-card-title">
+														<p><strong style="font-weight: bold">Các dịch vụ SMM trên bảng này có an toàn để đặt hàng không?</strong></p>
+													</div>
+													<div class="head__icon style-collapsed-icon" style="">
+														<div class="faq-block__icon style-collapse-icon fas" style="
+																																																																											                                                            font-size: 24px; 																																																																											                                                            "></div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="card card__faq-desc" style="
+																																																																								                                                    padding-top: 8px;
+																																																																								                                                    																																																																								                                                    																																																																								                                                    																																																																								                                                    																																																																								                                                    																																																																								                                                    																																																																								                                                    																																																																								                                                    																																																																								                                                    																																																																								                                                    																																																																								                                                    ">
+											<div class="card-content__desc collapse" id="faq-block-328-3">
+												<div class="desc__body style-faq-card-desc" style="padding-left: 0px; padding-right: 0px;">
+													<p>Tất nhiên rồi! Chắc chắn sẽ an toàn khi sử dụng tất cả các dịch vụ SMM của chúng tôi, bạn sẽ không bị mất tài khoản.</p>
+												</div>
+											</div>
+										</div>
+									</span>
+								</div>
+							</div>
+													<div class="col-lg-6 col-md-6 co-sm-12">
+								<div class="block-faq__card" style="
+																																																		                                    																																																		                                    																																																		                                    																																																		                                    																																																		                                    																																																		                                ">
+									<span class="style-collapsed-background" style="">
+										<div class="card card__faq collapsed" data-toggle="collapse" data-target="#faq-block-328-4" aria-expanded="false" aria-controls="#faq-block-328-4" style="
+																																																												                                            																																																												                                            																																																												                                            																																																												                                            																																																												                                            																																																												                                            																																																												                                            																																																												                                            																																																												                                            																																																												                                            																																																												                                            ">
+											<div class="block-faq__card-content">
+												<div class="card-content__head">
+													<div class="head__title style-faq-card-title">
+														<p><strong style="font-weight: bold">Đơn đặt hàng số lượng lớn - chúng hoạt động như thế nào?</strong></p>
+													</div>
+													<div class="head__icon style-collapsed-icon" style="">
+														<div class="faq-block__icon style-collapse-icon fas" style="
+																																																																											                                                            font-size: 24px; 																																																																											                                                            "></div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="card card__faq-desc" style="
+																																																																								                                                    padding-top: 8px;
+																																																																								                                                    																																																																								                                                    																																																																								                                                    																																																																								                                                    																																																																								                                                    																																																																								                                                    																																																																								                                                    																																																																								                                                    																																																																								                                                    																																																																								                                                    																																																																								                                                    ">
+											<div class="card-content__desc collapse" id="faq-block-328-4">
+												<div class="desc__body style-faq-card-desc" style="padding-left: 0px; padding-right: 0px;">
+													<p>Đặt hàng số lượng lớn là một cách hiệu quả để người dùng tiết kiệm thời gian vì nó cho phép đặt nhiều đơn hàng với các liên kết khác nhau cùng một lúc.</p>
+												</div>
+											</div>
+										</div>
+									</span>
+								</div>
+							</div>
+													<div class="col-lg-6 col-md-6 co-sm-12">
+								<div class="block-faq__card" style="
+																																																		                                    																																																		                                    																																																		                                    																																																		                                    																																																		                                    																																																		                                ">
+									<span class="style-collapsed-background" style="">
+										<div class="card card__faq collapsed" data-toggle="collapse" data-target="#faq-block-328-5" aria-expanded="false" aria-controls="#faq-block-328-5" style="
+																																																												                                            																																																												                                            																																																												                                            																																																												                                            																																																												                                            																																																												                                            																																																												                                            																																																												                                            																																																												                                            																																																												                                            																																																												                                            ">
+											<div class="block-faq__card-content">
+												<div class="card-content__head">
+													<div class="head__title style-faq-card-title">
+														<p><strong style="font-weight: bold">Tính năng Drip-feed hoạt động như thế nào?</strong></p>
+													</div>
+													<div class="head__icon style-collapsed-icon" style="">
+														<div class="faq-block__icon style-collapse-icon fas" style="
+																																																																											                                                            font-size: 24px; 																																																																											                                                            "></div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="card card__faq-desc" style="
+																																																																								                                                    padding-top: 8px;
+																																																																								                                                    																																																																								                                                    																																																																								                                                    																																																																								                                                    																																																																								                                                    																																																																								                                                    																																																																								                                                    																																																																								                                                    																																																																								                                                    																																																																								                                                    																																																																								                                                    ">
+											<div class="card-content__desc collapse" id="faq-block-328-5">
+												<div class="desc__body style-faq-card-desc" style="padding-left: 0px; padding-right: 0px;">
+													<p>Phát triển tài khoản của bạn nhanh như bạn muốn với sự trợ giúp của Nguồn cấp dữ liệu nhỏ giọt. Cách thức hoạt động: giả sử bạn muốn có 2000 lượt thích cho bài đăng của mình. Thay vì nhận tất cả 2000 cùng một lúc, bạn có thể nhận 200 mỗi ngày trong 10 ngày.</p>
+												</div>
+											</div>
+										</div>
+									</span>
+								</div>
+							</div>
+													<div class="col-lg-6 col-md-6 co-sm-12">
+								<div class="block-faq__card" style="
+																																																		                                    																																																		                                    																																																		                                    																																																		                                    																																																		                                    																																																		                                ">
+									<span class="style-collapsed-background" style="">
+										<div class="card card__faq collapsed" data-toggle="collapse" data-target="#faq-block-328-6" aria-expanded="false" aria-controls="#faq-block-328-6" style="
+																																																												                                            																																																												                                            																																																												                                            																																																												                                            																																																												                                            																																																												                                            																																																												                                            																																																												                                            																																																												                                            																																																												                                            																																																												                                            ">
+											<div class="block-faq__card-content">
+												<div class="card-content__head">
+													<div class="head__title style-faq-card-title">
+														<p><strong style="font-weight: bold">Đơn đặt hàng lớn là gì?</strong></p>
+													</div>
+													<div class="head__icon style-collapsed-icon" style="">
+														<div class="faq-block__icon style-collapse-icon fas" style="
+																																																																											                                                            font-size: 24px; 																																																																											                                                            "></div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="card card__faq-desc" style="
+																																																																								                                                    padding-top: 8px;
+																																																																								                                                    																																																																								                                                    																																																																								                                                    																																																																								                                                    																																																																								                                                    																																																																								                                                    																																																																								                                                    																																																																								                                                    																																																																								                                                    																																																																								                                                    																																																																								                                                    ">
+											<div class="card-content__desc collapse" id="faq-block-328-6">
+												<div class="desc__body style-faq-card-desc" style="padding-left: 0px; padding-right: 0px;">
+													<p>Sử dụng tùy chọn đặt hàng số lượng lớn khi bạn cần đặt nhiều đơn hàng cùng một lúc.</p>
+												</div>
+											</div>
+										</div>
+									</span>
+								</div>
+							</div>
+											</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="wrapper-content__footer">
+       <div id="block_354">
+	<div class="footer ">
+		<div class="component_footer_single_line">
+			<div class="component-footer">
+				<div class="component-footer__public">
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-md-12">
+								<div class="component-footer__public-copyright"><p class="text-center"><span style="text-align: CENTER">{{ site["site_name"] }}  © Copyright. All Rights Reserved.
+{% include 'footer.twig' %}

@@ -1,0 +1,25 @@
+
+
+wget --spider -O -
+https://Your_Domin/cronjobs/autolike.php  
+
+wget --spider -O -
+https://Your_Domin/cronjobs/orders.php  
+
+wget --spider -O -
+https://Your_Domin/crons/cronjobs/autoreply.php  
+
+wget --spider -O -
+https://Your_Domin/cronjobs/dripfeed.php  
+
+wget --spider -O -
+https://Your_Domin/cronjobs/payments.php  
+
+wget --spider -O -
+https://Your_Domin/cronjobs/refill.php  
+
+wget --spider -O -
+https://Your_Domin/cronjobs/seller-sync.php  
+
+wget --spider -O -
+https://Your_Domin/cronjobs/average.php 

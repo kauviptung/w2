@@ -1,0 +1,139 @@
+{% include 'header.twig' %}
+<div class="wrapper-content">
+    <div class="wrapper-content__header">
+          </div>
+
+    <div class="wrapper-content__body">
+      <!-- Main variables *content* -->
+      <div id="block_94">
+    <div class="add-funds__form"> 
+        <div class="bg"></div>
+        <div class="divider-top"></div>
+        <div class="divider-bottom"></div>
+        <div class="container">
+            {% if contentText %}
+<div class="card mt-2 mb-2">
+{{ contentText }}
+</div>
+{% endif %}
+            <div class="row add-funds__form-alignment">
+                <div class="col-lg-6 ">
+                    <div class="component_card">
+                        <div class="card mt-2">
+{% if error %}
+      <div class="alert alert-dismissible alert-danger">
+          <button type="button" class="close" data-dismiss="alert">×</button>
+        {{ errorText }}
+      </div>
+    {% endif %}  
+
+     {% if data["childpanel"]["success"] == 1 %}
+      <div class="alert alert-dismissible alert-success">
+<p>Bạn đã đặt mua thành công Smm Panel. Vui lòng đợi 30 phút để hoạt động đượ</p>
+<strong> Mã đơn hàng: </strong> {{ data['childpanel']['id'] }} <br>
+<strong> Tên miền: </strong> {{ data['childpanel']['link'] }} <br>
+<strong> Số lượng: </strong> {{ data['childpanel']['quantity'] }} <br>
+<strong> Giá tiền: </strong> {{ data['childpanel']['price'] }} <br>
+<strong> Số dư còn lại: </strong> {{ data['childpanel']['balance'] }} <br>
+</div>
+{% endif %}
+    <form name="contact-form" action="child-panels" method="post">
+    <div class="form-group">
+    <label for="Domain">Tên miền</label>
+    <input type="text" class="form-control" name="panel_domain" placeholder="example.com" required>
+    </div>
+<div class="ChildPanelNote">
+<span class="help-block" >Trước khi mua SMM Panel, hãy trỏ tên miền của bạn đến máy chủ tên của chúng tôi :</span>
+<p><b>ns1.host126.vietnix.vn</b></span></p>
+<p><b>ns2.host126.vietnix.vn</b></span></p>
+<span class="help-block" >Thuê SMM Panel là truy cập đầy đủ quyền của Admin. Có thể tự tạo dịch vụ, đấu API các nhà cung cấp tự do. Không phải dạng thuê web con :</span>
+</span></div>
+
+		
+		<div class="form-group">
+<label class="Tên miền" for="currency">Tiền tệ SMM Panel</label>
+			
+		<select class="form-control" name="panel_currency" required>
+{{ child_panel_currencies }}
+</select>
+    </div>
+	
+    <div class="form-group">
+    <label for="exampleInputEmail1">Tài khoản Admin</label>
+    <input type="text" class="form-control" name="admin_username" placeholder="Thành viên" required>
+    </div>
+
+<div class="form-group">
+    <label for="admin_password" class="control-label" >Mật khẩu Admin</label>
+<div class="input-group mb-3">
+<input type="text" id="childpanel_admin_password" name="admin_password" class="form-control" style="width:0%;" placeholder="" aria-describedby="basic-addon2" value="" autocomplete="off">
+<div class="input-group-append">
+<span  class="input-group-text style-bg-primary text-white" id="randomize_password"><i class="fa fa-random" aria-hidden="true"></i></span>
+  </div>
+</div>
+</div>
+<div class="form-group">
+
+<label class="control-label" for="orderpanelform-password">Xác nhận mật khẩu Admin</label><input type="text" id="childpanel_admin_confirm_password" class="form-control" name="admin_confirm_password" placeholder="" required>
+    </div>
+		
+<div class="form-group">
+<label for="charge" class="control-label"> Giá mỗi tháng</label>
+<input type="text" class="form-control" value="{{site_base_currency_symbol}}{{" "}}{{site["childpanel_price"]}}" readonly>
+</div>
+<button type="submit" class="btn btn-block btn-big-primary mt-4" name="submit" value="Submit" id="submit_form">Đặt hàng</button>
+</form>
+</div>
+</div></div>
+
+
+<br>
+<div class="table-wr table-responsive custom-table">
+
+            <table class="table ">
+              <thead>
+            <tr>
+              <th>#</th>
+              <th>Tên miền</th>
+              <th>Tên người dùng SMM Panel</th>
+              <th>Mật khẩu SMM Panel</th>
+              <th>Tiền tệ Panel</th>
+              <th class="nowrap">Đã mua vào</th>
+              <th class="nowrap">Trạng thái</th>
+   <th>Ngày gia hạn</th>
+            </tr>
+          </thead>
+          <tbody>
+
+{% for logs in chilpanel_logs %}
+<tr>
+<td>{{ logs['id'] }}</td>
+<td>{{ logs['domain'] }}</td>
+<td>{{ logs['child_panel_username'] }}</td>
+<td>{{ logs['child_panel_password'] }}</td>
+<td>{{ logs['child_panel_currency'] }}</td>
+<td class="nowrap">{{ logs['created_on'] }}</td>
+<td class="nowrap">
+{{ logs["child_panel_status"] }}
+</td>
+<td>{{logs["renewal_date"] }}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+      </div>
+  </div></div></div>
+
+   </div></div></div></div>
+</div>
+ <div class="divider-top"></div>
+        <div class="divider-bottom"></div>
+        <div class="container ludd">
+		{% if contentText2 %}
+<div class="card mb-4">
+{{ contentText2 }}
+</div>
+{% endif %}
+</div>
+
+{% include 'footer.twig' %}
